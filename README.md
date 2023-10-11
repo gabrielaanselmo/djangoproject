@@ -1,0 +1,2 @@
+# djangoproject
+Projeto utilizando DJANGO
