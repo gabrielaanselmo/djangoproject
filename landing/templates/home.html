@@ -23,20 +23,29 @@
     <div class="container">
         <h1>Bem-vindo à nossa Landing Page!</h1>
         <p>Inscreva-se para receber nossa newsletter:</p>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Inscrever</button>
-        </form>
+    <form method="post">
+        {% csrf_token %}
+        {{ form_inscricao.as_p }}
+        <button type="submit" name="form_inscricao-submit">Inscrever</button>
+    </form>
+    </div>
+
+    <div class="container">
+        <h2>Adicione seu depoimento</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form_depoimento.as_p }}
+        <button type="submit" name="form_depoimento-submit">Enviar Depoimento</button>
+    </form>
     </div>
 
     <div class="container">
         <h2>Depoimentos</h2>
         {% for depoimento in depoimentos %}
-            <blockquote>
-                <p>{{ depoimento.mensagem }}</p>
-                <footer>- {{ depoimento.nome }}</footer>
-            </blockquote>
+        <blockquote>
+            <p>{{ depoimento.mensagem }}</p>
+            <footer>- {{ depoimento.nome }}</footer>
+        </blockquote>
         {% endfor %}
     </div>
 
